@@ -212,6 +212,21 @@ Likewise, if you want to drop an index.
 )
 ```
 
+You can define multi column (primary) indexes by defining the `column` value as an array of strings. Setting the primary key on more than one column in the column definitions itself does not work and will result in no primary key at all.
+
+```php
+'create_field' => array(
+	'posts' => array(
+		'indexes' => array(
+			'UNIQUE_TITLE' => array(
+				'column' => ['title', 'another_column'],
+				'unique' => true
+			)
+		)
+	)
+)
+```
+
 Callbacks
 ---------
 
